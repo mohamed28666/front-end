@@ -17,7 +17,7 @@ export default class ThreeD extends React.Component {
         
         return (
           <div className="threeD">
-           <iframe src="http://localhost:3333/troisd"></iframe>
+           <iframe src="https://backedn.herokuapp.com/troisd"></iframe>
            
           
             
