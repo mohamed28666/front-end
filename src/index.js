@@ -18,8 +18,8 @@ import {
 ReactDOM.render(
   <>
   <HideAppBar></HideAppBar>
-  
-  <BrowserRouter>
+  <DashBoard></DashBoard> <ThreeD></ThreeD>
+  <BrowserRouter >
   <React.StrictMode>
     <Route path="/home"><SignIn></SignIn></Route>
      <Route path="/entered"><DashBoard></DashBoard> <ThreeD></ThreeD></Route>
