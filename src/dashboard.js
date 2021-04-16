@@ -88,7 +88,7 @@ export default class dashboard extends React.Component {
        
         
         return (
-          <div className="welcome-component">
+          <div className="container welcome-component">
            
            {button_components}
           
