@@ -21,7 +21,7 @@ ReactDOM.render(
   
   <BrowserRouter>
   <React.StrictMode>
-    <Route path="/"><SignIn></SignIn></Route>
+    <Route path="/home"><SignIn></SignIn></Route>
      <Route path="/entered"><DashBoard></DashBoard> <ThreeD></ThreeD></Route>
     
   </React.StrictMode>
