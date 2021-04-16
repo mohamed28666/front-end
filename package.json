@@ -20,7 +20,7 @@
     "react-scripts": "^4.0.3",
     "web-vitals": "^1.1.1"
   },
-  "proxy": "http://localhost:3333",
+  
   "scripts": {
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "start": "react-scripts start",
