@@ -16,7 +16,7 @@ code {
   width: 900px;
   height: 500px;
   background-color:beige;
-  position:fixed;
+  position: absolute;
   left: 200px;
   top: 150px;
 }
