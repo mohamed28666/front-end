@@ -18,10 +18,10 @@ import {
 ReactDOM.render(
   <>
   <HideAppBar></HideAppBar>
-  
+  <SignIn></SignIn>
   <BrowserRouter>
   <React.StrictMode>
-     <Route path="/home"><SignIn></SignIn></Route>
+    
      <Route path="/entered"><DashBoard></DashBoard> <ThreeD></ThreeD></Route>
     
   </React.StrictMode>
