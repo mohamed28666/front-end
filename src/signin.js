@@ -80,11 +80,11 @@ const update_input =(e)=>{
 // Similar to componentDidMount and componentDidUpdate:
 useEffect(() => {
   // Update the document title using the browser API
-  axios.get('http://localhost:3333/user/Admin/email').then(resp => {
+  axios.get('https://backedn.herokuapp.com/user/Admin/email').then(resp => {
    email=resp.data;
    console.log(email);})
 
-  axios.get('http://localhost:3333/user/Admin/password').then(resp => {
+  axios.get('https://backedn.herokuapp.com/user/Admin/password').then(resp => {
     password=resp.data;
     console.log(password);})
 

@@ -14,14 +14,14 @@ let display_array=[];
 export default class dashboard extends React.Component {
 
  async updatethestate(e){
-  await axios.get('http://localhost:3333/'+e.target.innerHTML).then(resp=>{if(resp.data===0){ 
-     axios.get('http://localhost:3333/set/'+e.target.innerHTML).then(resp=>{ });
+  await axios.get('https://backedn.herokuapp.com/'+e.target.innerHTML).then(resp=>{if(resp.data===0){ 
+     axios.get('https://backedn.herokuapp.com/set/'+e.target.innerHTML).then(resp=>{ });
     this.setState({random:"30"} ); 
     window.location.reload(); 
 
 
   }else if(resp.data===1){
-    axios.get('http://localhost:3333/reset/'+e.target.innerHTML).then(resp=>{ });
+    axios.get('https://backedn.herokuapp.com/reset/'+e.target.innerHTML).then(resp=>{ });
     this.setState({random:"30"} ); 
     window.location.reload(); 
 
@@ -43,7 +43,7 @@ export default class dashboard extends React.Component {
 
       async componentDidMount(){
         
-        await axios.get('http://localhost:3333').then(resp => {
+        await axios.get('https://backedn.herokuapp.com').then(resp => {
             relays_state=resp.data;
            
             Object.keys(relays_state).forEach(function(key) {rel_number.push(key);});
