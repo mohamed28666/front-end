@@ -88,7 +88,7 @@ export default class dashboard extends React.Component {
        
         
         return (
-          <div className="container welcome-component">
+          <div className="d-inline  container welcome-component">
            
            {button_components}
           
