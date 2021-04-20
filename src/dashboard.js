@@ -56,7 +56,8 @@ export default class dashboard extends React.Component {
 
 
   async componentDidMount() {
-
+    console.log("cookie is ");
+    console.log(Cookies.get());
 
     await axios.get('https://backedn.herokuapp.com/SU').then(resp => {
       relays_state = resp.data;
