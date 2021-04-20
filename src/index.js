@@ -5,7 +5,8 @@ import SignIn from './signin'
 import reportWebVitals from './reportWebVitals';
 import HideAppBar from './header';
 import DashBoard from './dashboard';
-import ThreeD from './threeD'
+import ThreeD from './threeD';
+import Formtest from './formTest';
 
 import {
   BrowserRouter as Router,
@@ -18,11 +19,12 @@ import {
 ReactDOM.render(
   <>
   <HideAppBar></HideAppBar>
-  <DashBoard></DashBoard> <ThreeD></ThreeD>
+   
   <BrowserRouter >
   <React.StrictMode>
-    <Route path="/home"><SignIn></SignIn></Route>
-     <Route path="/entered"><DashBoard></DashBoard> <ThreeD></ThreeD></Route>
+    
+    <Route exact path="/"><Formtest></Formtest></Route>
+     <Route exact path="/entered"><DashBoard></DashBoard> <ThreeD></ThreeD></Route>
     
   </React.StrictMode>
   </BrowserRouter></>,
