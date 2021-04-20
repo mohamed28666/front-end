@@ -24,7 +24,7 @@ export default class dashboard extends React.Component {
         }).then(resp => {
 
           e.target.parentNode.className = "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary";
-          console.log(e.target.parentNode.className);
+          console.log(this.state.cookie);
         });
 
 
