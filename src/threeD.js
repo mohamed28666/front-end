@@ -16,7 +16,7 @@ export default class ThreeD extends React.Component {
 
   }
   readfile(){
-    const url = "http://localhost:3333/troisd";
+    const url = "https://backedn.herokuapp.com/troisd";
     
     const authToken = Cookies.get('auth');
     
@@ -40,7 +40,7 @@ export default class ThreeD extends React.Component {
 
     return (
       <div className="d-inline  threeD container">
-        <iframe id="my_iframe" src="http://localhost:3333/troisd" ></iframe>
+        <iframe id="my_iframe" src="https://backedn.herokuapp.com/troisd" ></iframe>
 
 
 
