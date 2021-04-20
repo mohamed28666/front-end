@@ -58,7 +58,7 @@ export default class dashboard extends React.Component {
   async componentDidMount() {
 
 
-    await axios.get('https://backedn.herokuapp.com').then(resp => {
+    await axios.get('https://backedn.herokuapp.com/SU').then(resp => {
       relays_state = resp.data;
 
       Object.keys(relays_state).forEach(function (key) { rel_number.push(key); });
@@ -74,7 +74,7 @@ export default class dashboard extends React.Component {
       else display_array.push("secondary");
     })
     this.setState({ array1_display: display_array });
-
+    
 
 
 
