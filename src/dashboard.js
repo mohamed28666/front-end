@@ -14,9 +14,9 @@ let display_array = [];
 export default class dashboard extends React.Component {
 
   async updatethestate(e) {
-    await axios.get('http://localhost:3333/' + e.target.innerHTML).then(resp => {
+    await axios.get('https://backend28.herokuapp.com/' + e.target.innerHTML).then(resp => {
       if (resp.data === 0) {
-        axios.get('http://localhost:3333/set/' + e.target.innerHTML, {
+        axios.get('https://backend28.herokuapp.com/set/' + e.target.innerHTML, {
           headers: {
             'Authorization': `Bearer ${this.state.cookie}`
 
@@ -30,7 +30,7 @@ export default class dashboard extends React.Component {
 
 
       } else if (resp.data === 1) {
-        axios.get('http://localhost:3333/reset/' + e.target.innerHTML, {
+        axios.get('https://backend28.herokuapp.com/reset/' + e.target.innerHTML, {
           headers: {
             'Authorization': `Bearer ${this.state.cookie}`
           }
@@ -47,7 +47,7 @@ export default class dashboard extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { array1: [], array1_state: [], array1_display: [], color: props.color, cookie: Cookies.get('auth') };
+    this.state = { array1: [], array1_state: [], array1_display: [], color: props.color, cookie: localStorage.getItem('auth') };
 
   }
 
@@ -57,7 +57,7 @@ export default class dashboard extends React.Component {
 
   async componentDidMount() {
     
-    await axios.get('http://localhost:3333/SU').then(resp => {
+    await axios.get('https://backend28.herokuapp.com/SU').then(resp => {
       relays_state = resp.data;
 
       Object.keys(relays_state).forEach(function (key) { rel_number.push(key); });
@@ -75,6 +75,8 @@ export default class dashboard extends React.Component {
     this.setState({ array1_display: display_array });
     console.log("cookie is ");
     console.log(Cookies.get());
+
+    window.localStorage.setItem("auth",window.location.href.split("token=")[1]);
 
 
 
