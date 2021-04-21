@@ -47,7 +47,7 @@ export default class dashboard extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { array1: [], array1_state: [], array1_display: [], color: props.color, cookie: localStorage.getItem('auth') };
+    this.state = { array1: [], array1_state: [], array1_display: [], color: props.color, cookie: "" };
 
   }
 
@@ -56,6 +56,7 @@ export default class dashboard extends React.Component {
 
 
   async componentDidMount() {
+    this.setState({cookie:localStorage.getItem('auth')});
     
     await axios.get('https://backend28.herokuapp.com/SU').then(resp => {
       relays_state = resp.data;
