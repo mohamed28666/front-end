@@ -23,7 +23,7 @@ export default class dashboard extends React.Component {
           }
         }).then(resp => {
 
-          e.target.parentNode.className = "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary";
+          e.target.parentNode.className = "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-containedSizeLarge MuiButton-sizeLarge";
           console.log(this.state.cookie);
         });
 
@@ -34,7 +34,7 @@ export default class dashboard extends React.Component {
           headers: {
             'Authorization': `Bearer ${this.state.cookie}`
           }
-        }).then(resp => { e.target.parentNode.className = "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"; });
+        }).then(resp => { e.target.parentNode.className = "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"; });
 
 
 
