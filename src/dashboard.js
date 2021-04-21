@@ -99,7 +99,7 @@ export default class dashboard extends React.Component {
     const button_components = this.state.array1.map((rel, index) => (
 
 
-      <Button onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block', marginTop: 10, marginLeft: 20 }} variant="contained" color={this.state.array1_display[index]}>{rel}</Button>
+      <Button size="large" onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block', marginTop: 10, marginLeft: 20 }} variant="contained" color={this.state.array1_display[index]}>{rel}</Button>
 
 
     ));
