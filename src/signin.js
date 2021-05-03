@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -48,49 +48,53 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
-  
- let email;
- let password;
-  const [Input_user,setInputuser]=useState({user:'',password:'',formTarget:''});
+
+  let email;
+  let password;
+  const [Input_user, setInputuser] = useState({ user: '', password: '', formTarget: '' });
 
 
   const classes = useStyles();
-const startevent= () => {
-    
-    
-    if((Input_user.password==password)&&(Input_user.user==email)){setInputuser({formTarget:'/entered'})};
-    
+  const startevent = () => {
 
-}
-const update_input =(e)=>{
-  if (e.target.name==='email'){
-   setInputuser(
-     {user:e.target.value ,password:Input_user.password}
 
-    );
+    if ((Input_user.password == password) && (Input_user.user == email)) { setInputuser({ formTarget: '/entered' }) };
+
+
   }
-  if(e.target.name==='password'){  setInputuser(
-   {user:Input_user.user,password:e.target.value}
+  const update_input = (e) => {
+    if (e.target.name === 'email') {
+      setInputuser(
+        { user: e.target.value, password: Input_user.password }
 
-  );    }
+      );
+    }
+    if (e.target.name === 'password') {
+      setInputuser(
+        { user: Input_user.user, password: e.target.value }
 
-}
+      );
+    }
+
+  }
 
 
-// Similar to componentDidMount and componentDidUpdate:
-useEffect(() => {
-  // Update the document title using the browser API
-  axios.get('https://backend28.herokuapp.com/user/Admin/email').then(resp => {
-   email=resp.data;
-   console.log(email);})
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    axios.get('https://backend28.herokuapp.com/user/Admin/email').then(resp => {
+      email = resp.data;
+      console.log(email);
+    })
 
-  axios.get('https://backend28.herokuapp.com/user/Admin/password').then(resp => {
-    password=resp.data;
-    console.log(password);})
+    axios.get('https://backend28.herokuapp.com/user/Admin/password').then(resp => {
+      password = resp.data;
+      console.log(password);
+    })
 
-  
-    
-});
+
+
+  });
 
   return (
     <Container component="main" maxWidth="xs">
@@ -102,7 +106,7 @@ useEffect(() => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form}  action={Input_user.formTarget} noValidate onChange={update_input}>
+        <form className={classes.form} action={Input_user.formTarget} noValidate onChange={update_input}>
           <TextField
             variant="outlined"
             margin="normal"
