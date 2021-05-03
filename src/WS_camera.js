@@ -40,7 +40,7 @@ export default class Ws_camera extends React.Component {
 
 
         return (
-            <div className="embed-responsive embed-responsive-16by9">
+            <div className="embed-responsive embed-responsive-16by9 col-8">
                 <iframe id="" src="https://backend28.herokuapp.com/websocketfile" ></iframe>
 
 
