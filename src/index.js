@@ -25,7 +25,7 @@ ReactDOM.render(
   <React.StrictMode>
     
     <Route exact path="/"><Formtest></Formtest></Route>
-     <Route exact path="/entered"><DashBoard></DashBoard> <ThreeD></ThreeD> <Ws_camera></Ws_camera></Route>
+     <Route exact path="/entered"><DashBoard></DashBoard><Ws_camera></Ws_camera> <ThreeD></ThreeD> </Route>
      <Route exact path="/stream"><Ws_camera></Ws_camera></Route>
   </React.StrictMode>
   </BrowserRouter></>,
