@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-export default class ws_camera extends React.Component {
+export default class Ws_camera extends React.Component {
 
 
     constructor(props) {
@@ -9,8 +9,27 @@ export default class ws_camera extends React.Component {
 
     }
 
+    
 
 
+
+    readfile(){
+        const url = "https://backend28.herokuapp.com/websocketfile";
+        
+       // const authToken = Cookies.get('auth');
+        
+        //const header = { 'Authorization': `Bearer ${authToken}` };
+     
+        const iframe = document.getElementById('my_iframe').contentDocument;
+        axios.get(url)
+          .then((response) => {
+            
+            iframe.write(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
 
 
 
@@ -21,8 +40,8 @@ export default class ws_camera extends React.Component {
 
 
         return (
-            <div className="d-inline  threeD container">
-                <iframe id="my_iframe" src="https://backend28.herokuapp.com/websocketfile" ></iframe>
+            <div className="embed-responsive embed-responsive-16by9">
+                <iframe id="" src="https://backend28.herokuapp.com/websocketfile" ></iframe>
 
 
 

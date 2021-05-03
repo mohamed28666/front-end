@@ -39,7 +39,8 @@ export default class ThreeD extends React.Component {
     
 
     return (
-      <div className="d-inline  threeD container">
+      // <div className="d-inline  threeD container">
+      <div className="embed-responsive embed-responsive-16by9">
         <iframe id="my_iframe" src="https://backend28.herokuapp.com/troisd" ></iframe>
 
 

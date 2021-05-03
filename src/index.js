@@ -7,7 +7,7 @@ import HideAppBar from './header';
 import DashBoard from './dashboard';
 import ThreeD from './threeD';
 import Formtest from './formTest';
-import ws_camera from './WS_camera';
+import Ws_camera from './WS_camera';
 
 import {
   BrowserRouter as Router,
@@ -25,8 +25,8 @@ ReactDOM.render(
   <React.StrictMode>
     
     <Route exact path="/"><Formtest></Formtest></Route>
-     <Route exact path="/entered"><DashBoard></DashBoard> <ThreeD></ThreeD> <ws_camera></ws_camera></Route>
-    
+     <Route exact path="/entered"><DashBoard></DashBoard> <ThreeD></ThreeD> <Ws_camera></Ws_camera></Route>
+     <Route exact path="/stream"><Ws_camera></Ws_camera></Route>
   </React.StrictMode>
   </BrowserRouter></>,
   document.getElementById('root')
