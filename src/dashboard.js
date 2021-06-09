@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container'
 
 const styles = theme => ({
 
@@ -121,15 +122,19 @@ export default class dashboard extends React.Component {
 
     return (
       // <div className="d-inline  container welcome-component col-4">
-      <div className="col-4">
+      <Container className="col-4">
 
         
          
 
+           
         {button_components}
 
+         
 
-      </div>
+
+
+      </Container>
     );
   }
 

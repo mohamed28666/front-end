@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Container from '@material-ui/core/Container'
 export default class Ws_camera extends React.Component {
 
 
@@ -41,12 +42,12 @@ export default class Ws_camera extends React.Component {
 
     return (
       
-        <div className="embed-responsive embed-responsive-16by9 col-8">
+        <Container className="embed-responsive embed-responsive-16by9 col-8">
           <iframe id="" src="https://backend28.herokuapp.com/websocketfile" ></iframe>
  
 
        
-      </div>
+      </Container>
     );
 
 

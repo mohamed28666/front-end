@@ -8,7 +8,8 @@ import DashBoard from './dashboard';
 import ThreeD from './threeD';
 import Formtest from './formTest';
 import Ws_camera from './WS_camera';
-
+import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,16 +20,32 @@ import {
 
 ReactDOM.render(
   <>
-  <HideAppBar></HideAppBar>
-   
-  <BrowserRouter >
-  <React.StrictMode>
-    
-    <Route exact path="/"><Formtest></Formtest></Route>
-     <Route exact path="/entered"><DashBoard></DashBoard><Ws_camera></Ws_camera> <ThreeD></ThreeD> </Route>
-     <Route exact path="/stream"><Ws_camera></Ws_camera></Route>
-  </React.StrictMode>
-  </BrowserRouter></>,
+    <HideAppBar></HideAppBar>
+
+    <BrowserRouter >
+      <React.StrictMode>
+
+        <Route exact path="/"><Formtest></Formtest></Route>
+        <Route exact path="/entered">
+
+
+          <Box my={10}>
+
+                 
+                         
+         
+            
+             <DashBoard></DashBoard>
+  
+
+
+
+            
+          </Box>
+        </Route>
+        <Route exact path="/stream"><Ws_camera></Ws_camera></Route>
+      </React.StrictMode>
+    </BrowserRouter></>,
   document.getElementById('root')
 );
 

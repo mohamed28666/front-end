@@ -18,7 +18,7 @@ const styles = theme => ({
 export default class Dht extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { DHT: [], time: Date.now() };
+        this.state = { DHT: {Temperature:"loading",Humidity:"loading"}, time: Date.now() };
 
 
     }
