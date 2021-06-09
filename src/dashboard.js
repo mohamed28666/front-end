@@ -3,6 +3,18 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { json } from 'body-parser';
 import Cookies from 'js-cookie';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+
+const styles = theme => ({
+
+  spacing: 8
+
+
+
+});
 let relays_state;
 let rel_number = [];
 let etat_de_relais = [];
@@ -56,8 +68,8 @@ export default class dashboard extends React.Component {
 
 
   async componentDidMount() {
-    this.setState({cookie:localStorage.getItem('auth')});
-    
+    this.setState({ cookie: localStorage.getItem('auth') });
+
     await axios.get('https://backend28.herokuapp.com/SU').then(resp => {
       relays_state = resp.data;
 
@@ -65,6 +77,7 @@ export default class dashboard extends React.Component {
       Object.values(relays_state).forEach(function (keyy) { etat_de_relais.push(keyy); });
 
     });
+    
 
     this.setState({ array1: rel_number });
     this.setState({ array1_state: etat_de_relais });
@@ -77,7 +90,7 @@ export default class dashboard extends React.Component {
     console.log("cookie is ");
     console.log(Cookies.get());
 
-    window.localStorage.setItem("auth",window.location.href.split("token=")[1]);
+    window.localStorage.setItem("auth", window.location.href.split("token=")[1]);
 
 
 
@@ -108,7 +121,11 @@ export default class dashboard extends React.Component {
 
     return (
       // <div className="d-inline  container welcome-component col-4">
-<div className="col-4">
+      <div className="col-4">
+
+        
+         
+
         {button_components}
 
 

@@ -9,6 +9,18 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Slide from '@material-ui/core/Slide';
 
+import Dht from './dht.js'
+import Grid from '@material-ui/core/Grid'
+
+
+const styles = theme => ({
+
+  spacing: 8
+
+
+
+});
+
 function HideOnScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -39,14 +51,25 @@ export default function HideAppBar(props) {
       <HideOnScroll {...props}>
         <AppBar>
           <Toolbar>
-            <Typography variant="h6">Hamouda's Room</Typography>
+            <Grid container alignItems="stretch" spacing={1} >
+              <Grid item xs={9}>
+                <Box py={2.3}>
+                <Typography variant="h6">Hamouda's Room</Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={3}>
+                <Dht></Dht>
+              </Grid>
+            </Grid>
+
+
           </Toolbar>
         </AppBar>
       </HideOnScroll>
       <Toolbar />
       <Container>
         <Box my={2}>
-         
+
         </Box>
       </Container>
     </React.Fragment>
