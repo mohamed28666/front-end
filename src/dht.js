@@ -38,7 +38,7 @@ export default class Dht extends React.Component {
 
     }
     componentWillUnmount() {
-        clearInterval(this.interval);
+       
       }
     render() {
         return (

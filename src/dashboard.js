@@ -8,7 +8,9 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container'
-
+import button_imf from'./logo.svg';
+import On from './On.jpg';
+import off from './OFF.jpg'
 const styles = theme => ({
 
   spacing: 8
@@ -20,7 +22,7 @@ let relays_state;
 let rel_number = [];
 let etat_de_relais = [];
 let display_array = [];
-
+let display_image=[];
 
 
 
@@ -69,8 +71,7 @@ export default class dashboard extends React.Component {
 
 
   async componentDidMount() {
-    this.setState({ cookie: localStorage.getItem('auth') });
-
+    
     await axios.get('https://backend28.herokuapp.com/SU').then(resp => {
       relays_state = resp.data;
 
@@ -84,12 +85,13 @@ export default class dashboard extends React.Component {
     this.setState({ array1_state: etat_de_relais });
 
     this.state.array1_state.forEach(function (key) {
-      if (key === "0") display_array.push("primary");
-      else display_array.push("secondary");
+      if (key === "0") {display_array.push("primary");display_image.push(off)}
+      else {display_array.push("secondary");display_image.push(On)}
     })
     this.setState({ array1_display: display_array });
-    console.log("cookie is ");
-    console.log(Cookies.get());
+    
+    this.setState({ cookie: localStorage.getItem('auth') });
+
 
     window.localStorage.setItem("auth", window.location.href.split("token=")[1]);
 
@@ -111,18 +113,18 @@ export default class dashboard extends React.Component {
   render() {
 
     const button_components = this.state.array1.map((rel, index) => (
+      <>
+      <img src={display_image[index]}></img>
+      <Button fullWidth={true}size="large" onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block', marginTop: 10, marginLeft: 20 }} variant="contained" color={this.state.array1_display[index]}>{rel}</Button>
 
-
-      <Button size="large" onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block', marginTop: 10, marginLeft: 20 }} variant="contained" color={this.state.array1_display[index]}>{rel}</Button>
-
-
+</>
     ));
 
 
 
     return (
       // <div className="d-inline  container welcome-component col-4">
-      <Container className="col-4">
+      <Container >
 
         
          
