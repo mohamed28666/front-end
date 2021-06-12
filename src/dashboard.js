@@ -11,6 +11,8 @@ import Container from '@material-ui/core/Container'
 import button_imf from'./logo.svg';
 import On from './On.jpg';
 import off from './OFF.jpg'
+import Avatar from '@material-ui/core/Avatar';
+
 const styles = theme => ({
 
   spacing: 8
@@ -62,7 +64,7 @@ export default class dashboard extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { array1: [], array1_state: [], array1_display: [], color: props.color, cookie: "" };
+    this.state = { array1: [], array1_state: [], array1_display: [],imagebtn:[], color: props.color, cookie: "" };
 
   }
 
@@ -89,7 +91,7 @@ export default class dashboard extends React.Component {
       else {display_array.push("secondary");display_image.push(On)}
     })
     this.setState({ array1_display: display_array });
-    
+    this.setState({ imagebtn: display_image });
     this.setState({ cookie: localStorage.getItem('auth') });
 
 
@@ -113,11 +115,20 @@ export default class dashboard extends React.Component {
   render() {
 
     const button_components = this.state.array1.map((rel, index) => (
-      <>
-      <img src={display_image[index]}></img>
-      <Button fullWidth={true}size="large" onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block', marginTop: 10, marginLeft: 20 }} variant="contained" color={this.state.array1_display[index]}>{rel}</Button>
+      <Container>
+        
 
-</>
+        <Paper elevation={24} >
+        <Box p={5}my={5}>
+            <Avatar onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block', marginTop: 10, marginLeft: 20 }} variant="contained" color={this.state.array1_display[index]}
+            className={ "width:100%", "height:100%"} variant={'circular'}  src={display_image[index]}></Avatar>
+       
+   
+      
+      </Box>
+      </Paper>
+      
+</Container>
     ));
 
 
