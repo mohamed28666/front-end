@@ -30,7 +30,11 @@ let display_image=[];
 
 
 export default class dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { array1: [], array1_state: [], array1_display: [],imagebtn:[], color: props.color, cookie: "" };
 
+  }
   async updatethestate(e) {
     await axios.get('https://backend28.herokuapp.com/' + e.target.innerHTML).then(resp => {
       if (resp.data === 0) {
@@ -63,11 +67,7 @@ export default class dashboard extends React.Component {
 
 
 
-  constructor(props) {
-    super(props);
-    this.state = { array1: [], array1_state: [], array1_display: [],imagebtn:[], color: props.color, cookie: "" };
-
-  }
+  
 
 
 
