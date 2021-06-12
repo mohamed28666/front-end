@@ -58,7 +58,7 @@ export default class dashboard extends React.Component {
 
       }
     });
-
+    this.setState({ imagebtn: display_image });
   }
 
 
@@ -92,6 +92,7 @@ export default class dashboard extends React.Component {
       else {display_array.push("secondary");display_image.push(On)}
     })
     this.setState({ array1_display: display_array });
+    console.log(display_image);
     this.setState({ imagebtn: display_image });
     this.setState({ cookie: localStorage.getItem('auth') });
 
@@ -127,9 +128,10 @@ export default class dashboard extends React.Component {
             <Avatar style={{height:'100%',width:"100%",alignSelf: 'center'}} variant={'circular'}  src={display_image[index]}></Avatar>
             
             
-            <Box my={2}>
+            <Box my={2}  >
             <Paper elevation={24}> 
-              <Button size="large" onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block',width:"100%",backgroundImage:display_image[index]}} variant="contained" color={this.state.array1_display[index]}>{rel}</Button>
+            
+              <Button size="large" onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{  display: 'block',width:"100%",}} variant="contained" color={this.state.array1_display[index]}>{rel}</Button>
             </Paper>
             </Box>
             </Box>
