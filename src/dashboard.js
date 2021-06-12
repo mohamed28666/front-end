@@ -125,7 +125,7 @@ export default class dashboard extends React.Component {
            
              <Box p={1}my={5} >
              
-            <Avatar style={{height:'100%',width:"100%",alignSelf: 'center'}} variant={'circular'}  src={display_image[index]}></Avatar>
+            <Avatar style={{height:'100%',width:"100%",alignSelf: 'center'}} variant={'circular'}  src={this.state.imagebtn[index]}></Avatar>
             
             
             <Box my={2}  >
