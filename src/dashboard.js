@@ -13,7 +13,7 @@ import On from './On.jpg';
 import off from './OFF.jpg'
 import Avatar from '@material-ui/core/Avatar';
 import { Height } from '@material-ui/icons';
-
+import Test from './test'
 const styles = theme => ({
 
   spacing: 8
@@ -33,8 +33,9 @@ export default class dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = { array1: [], array1_state: [], array1_display: [],imagebtn:[], color: props.color, cookie: "" };
-
+    this.updatethestate=this.updatethestate.bind(this)
   }
+ 
   async updatethestate(e) {
     await axios.get('https://backend28.herokuapp.com/' + e.target.innerHTML).then(resp => {
       if (resp.data === 0) {
@@ -62,9 +63,9 @@ export default class dashboard extends React.Component {
 
       }
     });
+    console.log(this.state.imagebtn);
     this.setState({ imagebtn: display_image });
   }
-
 
 
   
@@ -74,6 +75,7 @@ export default class dashboard extends React.Component {
 
 
   async componentDidMount() {
+    
     
     await axios.get('https://backend28.herokuapp.com/SU').then(resp => {
       relays_state = resp.data;
@@ -124,7 +126,7 @@ export default class dashboard extends React.Component {
         
            
              <Box p={1}my={5} >
-             
+             <Test></Test>
             <Avatar style={{height:'100%',width:"100%",alignSelf: 'center'}} variant={'circular'}  src={this.state.imagebtn[index]}></Avatar>
             
             
