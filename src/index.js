@@ -17,6 +17,7 @@ import {
   Link,
   BrowserRouter
 } from "react-router-dom";
+import { Container } from '@material-ui/core';
 
 ReactDOM.render(
   <>
@@ -29,19 +30,10 @@ ReactDOM.render(
         <Route exact path="/entered">
 
 
-          <Box my={10}>
-
-                 
-                         
-         
-            
-             <DashBoard></DashBoard>
-  
-
-
-
-            
+          <Box >          
+            <DashBoard></DashBoard>
           </Box>
+
         </Route>
         <Route exact path="/stream"><Ws_camera></Ws_camera></Route>
       </React.StrictMode>

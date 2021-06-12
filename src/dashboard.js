@@ -12,6 +12,7 @@ import button_imf from'./logo.svg';
 import On from './On.jpg';
 import off from './OFF.jpg'
 import Avatar from '@material-ui/core/Avatar';
+import { Height } from '@material-ui/icons';
 
 const styles = theme => ({
 
@@ -115,39 +116,48 @@ export default class dashboard extends React.Component {
   render() {
 
     const button_components = this.state.array1.map((rel, index) => (
-      <Container>
-        
+ 
 
-        <Paper elevation={24} >
-        <Box p={5}my={5}>
-            <Avatar onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block', marginTop: 10, marginLeft: 20 }} variant="contained" color={this.state.array1_display[index]}
-            className={ "width:100%", "height:100%"} variant={'circular'}  src={display_image[index]}></Avatar>
-       
-   
+        <Paper elevation={10}  style={{backgroundColor :'beige',width:"100%"}}>
+          
+        
+           
+             <Box p={1}my={5} >
+             
+            <Avatar style={{height:'100%',width:"100%",alignSelf: 'center'}} variant={'circular'}  src={display_image[index]}></Avatar>
+            
+            
+            <Box my={2}>
+            <Paper elevation={24}> 
+              <Button size="large" onClick={(e) => this.updatethestate(e)} tabIndex={index} style={{ display: 'block',width:"100%",backgroundImage:display_image[index]}} variant="contained" color={this.state.array1_display[index]}>{rel}</Button>
+            </Paper>
+            </Box>
+            </Box>
+            
       
-      </Box>
       </Paper>
       
-</Container>
+     
     ));
 
 
 
     return (
       // <div className="d-inline  container welcome-component col-4">
-      <Container >
+      < >
 
         
-         
+<Container  style={{width:"50%"}}>
 
            
         {button_components}
 
          
 
+        </Container>
 
 
-      </Container>
+      </>
     );
   }
 
