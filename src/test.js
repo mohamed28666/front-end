@@ -38,7 +38,7 @@ export default class Test extends React.Component {
 
 
 
-            axios.get('https://backend28.herokuapp.com/set/relay' + i+1, {
+            axios.get('https://backend28.herokuapp.com/set/relay' +(parseInt(i)+parseInt(1)), {
                 headers: {
                     'Authorization': `Bearer ${this.state.cookie}`
 
@@ -54,7 +54,7 @@ export default class Test extends React.Component {
         else {
             temp[i] = "0";
             images[i] = off;
-            axios.get('https://backend28.herokuapp.com/reset/relay' + i+1, {
+            axios.get('https://backend28.herokuapp.com/reset/relay' + (parseInt(i)+parseInt(1)), {
                 headers: {
                     'Authorization': `Bearer ${this.state.cookie}`
 
@@ -65,8 +65,8 @@ export default class Test extends React.Component {
                 this.setState({ Images: images });
                 console.log(resp);
             });
-            this.setState({ Relays: temp });
-            this.setState({ Images: images });
+            //this.setState({ Relays: temp });
+            //this.setState({ Images: images });
         }
 
 
@@ -128,7 +128,7 @@ export default class Test extends React.Component {
                             <Box my={2}  >
                                 <Paper elevation={24}>
 
-                                    <Button size="large" onClick={(e) => this.updatethestate(e, i)} style={{ display: 'block', width: "100%", }} variant="contained" >{R[i]}</Button>
+                                    <Button size="large" onClick={(e) => this.updatethestate(e, i)} style={{ display: 'block', width: "100%", }} variant="contained" >Relay{i+1}</Button>
                                 </Paper>
                             </Box>
                         </Box>
@@ -154,7 +154,7 @@ export default class Test extends React.Component {
                             <Box my={2}  >
                                 <Paper elevation={24}>
 
-                                    <Button size="large" onClick={(e) => this.updatethestate(e, i)} style={{ display: 'block', width: "100%", }} variant="contained" >{R[i]}</Button>
+                                    <Button size="large" onClick={(e) => this.updatethestate(e, i)} style={{ display: 'block', width: "100%", }} variant="contained" >Relay{i+1}</Button>
                                 </Paper>
                             </Box>
                         </Box>
