@@ -25,37 +25,37 @@ export default class Test extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { Relays: [],Images:[] }
+        this.state = { Relays: [], Images: [] }
 
 
     }
     async updatethestate(e, i) {
         let temp = [...this.state.Relays];
-        let images=[...this.state.Images]
+        let images = [...this.state.Images]
         if (temp[i] === "0") {
             temp[i] = "1";
-            images[i]=On;
-           
+            images[i] = On;
 
 
-            axios.get('https://backend28.herokuapp.com/set/Relay' +i, {
-          headers: {
-            'Authorization': `Bearer ${this.state.cookie}`
 
-          }
-        }).then(resp => {
+            axios.get('https://backend28.herokuapp.com/set/Relay' + i, {
+                headers: {
+                    'Authorization': `Bearer ${this.state.cookie}`
 
-            this.setState({ Relays: temp });
-            this.setState({Images:images});
-          console.log(resp);
-        });
+                }
+            }).then(resp => {
+
+                this.setState({ Relays: temp });
+                this.setState({ Images: images });
+                console.log(resp);
+            });
 
         }
         else {
             temp[i] = "0";
-            images[i]=off;
+            images[i] = off;
             this.setState({ Relays: temp });
-            this.setState({Images:images});
+            this.setState({ Images: images });
         }
 
 
@@ -67,22 +67,22 @@ export default class Test extends React.Component {
             this.setState({ Relays: resp.data });
 
         });
-        
 
-        this.setState({ Relays: Object.values(this.state.Relays) }) 
-        let images=[];
-        for (let i = 0; i < this.state.Relays.length; i++){
-           
-            if(this.state.Relays[i]==="1"){
-images[i]=On;
 
-            }else{
-                images[i]=off;
+        this.setState({ Relays: Object.values(this.state.Relays) })
+        let images = [];
+        for (let i = 0; i < this.state.Relays.length; i++) {
+
+            if (this.state.Relays[i] === "1") {
+                images[i] = On;
+
+            } else {
+                images[i] = off;
             }
-           
+
 
         }
-       this.setState({Images:images})
+        this.setState({ Images: images })
         console.log(this.state.Relays)
     }
     componentWillUnmount() {
@@ -93,10 +93,10 @@ images[i]=On;
         let component = [];
         for (let i = 0; i < this.state.Relays.length; i++) {
             let R = this.state.Relays;
-            let images=this.state.Images
-         
+            let images = this.state.Images
+
             if (R[i] == "1") {
-                         
+
                 component.push(
 
                     <Paper elevation={10} style={{ backgroundColor: 'beige', width: "100%" }}>
@@ -104,14 +104,14 @@ images[i]=On;
 
 
                         <Box p={1} my={5} >
-                          
+
                             <Avatar style={{ height: '100%', width: "100%", alignSelf: 'center' }} variant={'circular'} src={images[i]}  ></Avatar>
 
 
                             <Box my={2}  >
                                 <Paper elevation={24}>
 
-                                    <Button size="large" onClick={(e) => this.updatethestate(e,i)} style={{ display: 'block', width: "100%", }} variant="contained" >{R[i]}</Button>
+                                    <Button size="large" onClick={(e) => this.updatethestate(e, i)} style={{ display: 'block', width: "100%", }} variant="contained" >{R[i]}</Button>
                                 </Paper>
                             </Box>
                         </Box>
@@ -122,7 +122,7 @@ images[i]=On;
                 );
             } if (R[i] == "0") {
 
-               
+
 
                 component.push(
                     <Paper elevation={10} style={{ backgroundColor: 'beige', width: "100%" }}>
@@ -130,14 +130,14 @@ images[i]=On;
 
 
                         <Box p={1} my={5} >
-                           
+
                             <Avatar style={{ height: '100%', width: "100%", alignSelf: 'center' }} variant={'circular'} src={images[i]} ></Avatar>
 
 
                             <Box my={2}  >
                                 <Paper elevation={24}>
 
-                                    <Button size="large" onClick={(e) => this.updatethestate(e,i)} style={{ display: 'block', width: "100%", }} variant="contained" >{R[i]}</Button>
+                                    <Button size="large" onClick={(e) => this.updatethestate(e, i)} style={{ display: 'block', width: "100%", }} variant="contained" >{R[i]}</Button>
                                 </Paper>
                             </Box>
                         </Box>
@@ -146,10 +146,10 @@ images[i]=On;
                     </Paper>
                 )
             }
-            
+
         }
 
-        
+
 
         return (
             <>
