@@ -153,8 +153,8 @@ export default class dashboard extends React.Component {
         
 <Container  style={{width:"50%"}}>
 
-           
-        {button_components}
+           <Test></Test>
+        {}
 
          
 
