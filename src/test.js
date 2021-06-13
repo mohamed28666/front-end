@@ -25,7 +25,7 @@ export default class Test extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { Relays: [], Images: [] }
+        this.state = { Relays: [], Images: [] ,cookie:""}
 
 
     }
@@ -60,8 +60,13 @@ export default class Test extends React.Component {
 
 
     };
+    
     async componentDidMount() {
+        
+        console.log(this.state.cookie);
 
+        window.localStorage.setItem("auth", window.location.href.split("token=")[1]);
+        this.setState({ cookie: localStorage.getItem('auth') });
         await axios.get('https://backend28.herokuapp.com/SU').then((resp) => {
 
             this.setState({ Relays: resp.data });
