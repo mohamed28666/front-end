@@ -38,7 +38,7 @@ export default class Test extends React.Component {
 
 
 
-            axios.get('https://backend28.herokuapp.com/set/Relay' + i, {
+            axios.get('https://backend28.herokuapp.com/set/relay' + i+1, {
                 headers: {
                     'Authorization': `Bearer ${this.state.cookie}`
 
@@ -54,6 +54,17 @@ export default class Test extends React.Component {
         else {
             temp[i] = "0";
             images[i] = off;
+            axios.get('https://backend28.herokuapp.com/reset/relay' + i+1, {
+                headers: {
+                    'Authorization': `Bearer ${this.state.cookie}`
+
+                }
+            }).then(resp => {
+
+                this.setState({ Relays: temp });
+                this.setState({ Images: images });
+                console.log(resp);
+            });
             this.setState({ Relays: temp });
             this.setState({ Images: images });
         }
@@ -63,10 +74,11 @@ export default class Test extends React.Component {
     
     async componentDidMount() {
         
-        console.log(this.state.cookie);
+        
 
         window.localStorage.setItem("auth", window.location.href.split("token=")[1]);
         this.setState({ cookie: localStorage.getItem('auth') });
+        console.log(this.state.cookie);
         await axios.get('https://backend28.herokuapp.com/SU').then((resp) => {
 
             this.setState({ Relays: resp.data });
