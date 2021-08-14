@@ -34,7 +34,7 @@ export default class Dht extends React.Component {
 
             });
 
-        }, 5000);
+        },60*60*24*1000);
 
     }
     componentWillUnmount() {
